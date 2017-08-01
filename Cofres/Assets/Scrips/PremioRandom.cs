@@ -30,7 +30,7 @@ public class PremioRandom : MonoBehaviour {
             total += num;
         }
         float randNum = Random.Range(0, total);
-        //Debug.Log("Numero random: " + randNum);
+        Debug.Log("Numero random: " + randNum);
         for (int i = 0; i < prob.Length; i++)
         {
             if (randNum <= prob[i])
