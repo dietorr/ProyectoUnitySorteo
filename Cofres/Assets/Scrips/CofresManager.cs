@@ -15,17 +15,30 @@ public class CofresManager : MonoBehaviour {
     public Text ganarTexto;
     public GameObject botonSiguiente;
 
+    //public AudioSource AbrirCofre;
+    //public AudioClip AbrirCofre;
+
     private float seleccion = 0.0f;
     private static int cantCofres = 0;
+
+    private void Start()
+    {
+        //this.gameObject.AddComponent<AudioSource>();
+        //this.GetComponent<AudioSource>().playOnAwake = false;
+        //this.GetComponent<AudioSource>().clip = AbrirCofre;
+    }
+
 
     void OnMouseDown()
     {
         //  texto.transform.position = bar;
+        //this.GetComponent<AudioSource>().PlayOneShot(AbrirCofre,1);
+
         cantCofres = cantCofres + 1;
         texto.gameObject.SetActive(true);
         seleccion = Random.GetComponent<PremioRandom>().obtenerDescuento();
         total = total + seleccion;
-        texto.text = seleccion.ToString(); ;
+        texto.text = seleccion.ToString() + "%";
         //Debug.Log(cantCofres);
         if (posicion == 1)
         {
@@ -42,6 +55,7 @@ public class CofresManager : MonoBehaviour {
             Debug.Log("error");
         }
     }
+    
 
     IEnumerator MyCoroutine()
     {
@@ -57,7 +71,6 @@ public class CofresManager : MonoBehaviour {
         if(cantCofres == 3)
         {
             StartCoroutine(MyCoroutine());
-
         }
     }
 
